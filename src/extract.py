@@ -17,3 +17,20 @@ from src.config import (
     TIMEZONE,
     REQUEST_TIMEOUT
 )
+
+logger = logging.getLogger(__name__)
+
+def extract_weather_data():
+    """
+    Exract weather data from the Open-Meteo API.
+
+    Returns:
+        dict: A dictionary containing the extracted weather data.
+    """
+    params = {
+        "latitude": LATITUDE,
+        "longitude": LONGITUDE,
+        "hourly": ",".join(HOURLY_VARIABLES),
+        "forecast_days": FORECAST_DAYS,
+        "timezone": TIMEZONE
+    }
