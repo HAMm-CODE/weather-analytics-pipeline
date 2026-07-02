@@ -17,3 +17,11 @@ logging.basicConfig(
     ],
 )
 
+if __name__ == "__main__":
+    weather_data = extract_weather_data()
+
+    print("Extraction successful!")
+    print("Location:", weather_data["location_name"])
+    print("Hourly fields:", weather_data["hourly"].keys())
+    print("First 5:", weather_data["hourly"]["time"][:5])
+
