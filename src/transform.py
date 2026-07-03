@@ -74,7 +74,7 @@ def transform_weather_data(raw_data):
         df["location_name"] = df["location_name"].str.strip().str.title()
 
         # Create derived fields for easier analysis and star schema loading
-        df["date"] = df["observation_time"].dt.time
+        df["date"] = df["observation_time"].dt.date
         df["hour"] = df["observation_time"].dt.hour
 
     except Exception as error:
