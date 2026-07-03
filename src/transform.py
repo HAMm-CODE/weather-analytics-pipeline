@@ -70,7 +70,8 @@ def transform_weather_data(raw_data):
         for column in numeric_columns:
             df[column] = pd.to_numeric(df[column], errors="coerce")
         
-        
+        # Standardize Location name
+        df["location_name"] = df["location_name"].str.strip().str.title()
 
     except Exception as error:
         logger.error("Weather data tranformation failed: %s", error)
