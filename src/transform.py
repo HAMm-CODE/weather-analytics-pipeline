@@ -82,7 +82,38 @@ def transform_weather_data(raw_data):
             subset = ["location_name", "observation_time"]
         )
 
-        
+        #Handle missing values in important fields
+        df = df.dropna(
+            subset=[
+                "observation_time",
+                "temperature_celsius",
+                "humidity_percent"
+            ]
+        )
+
+        # Reoder columns for readability
+        df = df[
+            [
+                "location_name",
+                "latitude",
+                "longitude",
+                "timezone",
+                "observation_time",
+                "date",
+                "hour",
+                "temperature_celsius",
+                "humidity_percent",
+                "preciptation_nm",
+                "wind_speed_kmh",
+            ]
+        ]
+
+        logger.info(
+            "Weather data transformation completed successfully. Rows: %s",
+            len(df),
+        )
+
+        return df
 
     except Exception as error:
         logger.error("Weather data tranformation failed: %s", error)
