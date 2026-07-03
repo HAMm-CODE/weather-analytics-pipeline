@@ -57,6 +57,21 @@ def transform_weather_data(raw_data):
             errors="coerce"
         )
 
+        #convert numeric columns to proper numeric types
+        numeric_columns = [
+            "temperature_celcius",
+            "humidity_percent",
+            "precipitation_nm",
+            "wind_speed_kmh",
+            "latitude",
+            "longitude",
+        ] 
+
+        for column in numeric_columns:
+            df[column] = pd.to_numeric(df[column], errors="coerce")
+        
+        
+
     except Exception as error:
         logger.error("Weather data tranformation failed: %s", error)
         raise
