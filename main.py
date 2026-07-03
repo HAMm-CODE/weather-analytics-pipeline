@@ -7,6 +7,7 @@ Entry point running the weather ETL project manually
 import logging
 
 from src.extract import extract_weather_data
+from src.transform import transform_weather_data
 
 logging.basicConfig(
     level=logging.INFO,
@@ -18,10 +19,10 @@ logging.basicConfig(
 )
 
 if __name__ == "__main__":
-    weather_data = extract_weather_data()
+    raw_weather_data = extract_weather_data()
 
-    print("Extraction successful!")
-    print("Location:", weather_data["location_name"])
-    print("Hourly fields:", weather_data["hourly"].keys())
-    print("First 5:", weather_data["hourly"]["time"][:5])
+    clean_weather_data = transform_weather_data(raw_weather_data)
+
+    print("Extraction and Transform successful")
+    print(clean_weather_data)
 
