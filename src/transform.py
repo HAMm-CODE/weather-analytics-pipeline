@@ -77,6 +77,13 @@ def transform_weather_data(raw_data):
         df["date"] = df["observation_time"].dt.date
         df["hour"] = df["observation_time"].dt.hour
 
+        #Remove duplicate weather records
+        df = df.drop_duplicates(
+            subset = ["location_name", "observation_time"]
+        )
+
+        
+
     except Exception as error:
         logger.error("Weather data tranformation failed: %s", error)
         raise
