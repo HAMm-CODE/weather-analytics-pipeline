@@ -24,5 +24,6 @@ if __name__ == "__main__":
     clean_weather_data = transform_weather_data(raw_weather_data)
 
     print("Extraction and Transform successful")
-    print(clean_weather_data)
+    print(clean_weather_data.head())
+    print(clean_weather_data.info())
 

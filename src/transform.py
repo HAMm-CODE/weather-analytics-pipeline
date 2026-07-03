@@ -59,7 +59,7 @@ def transform_weather_data(raw_data):
 
         #convert numeric columns to proper numeric types
         numeric_columns = [
-            "temperature_celcius",
+            "temperature_celsius",
             "humidity_percent",
             "precipitation_nm",
             "wind_speed_kmh",
@@ -103,7 +103,7 @@ def transform_weather_data(raw_data):
                 "hour",
                 "temperature_celsius",
                 "humidity_percent",
-                "preciptation_nm",
+                "precipitation_nm",
                 "wind_speed_kmh",
             ]
         ]

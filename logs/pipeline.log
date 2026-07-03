@@ -12,3 +12,15 @@
 2026-07-03 21:22:54,207 - src.extract - INFO - Starting weather data extraction for Tampere.
 2026-07-03 21:22:54,401 - src.extract - INFO - Weather data extraction completed successfully.
 2026-07-03 21:22:54,401 - src.transform - INFO - Starting weather data transformation.
+2026-07-03 22:11:15,593 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-03 22:11:15,802 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-03 22:11:15,803 - src.transform - INFO - Starting weather data transformation.
+2026-07-03 22:11:15,859 - src.transform - ERROR - Weather data tranformation failed: 'temperature_celcius'
+2026-07-03 22:13:01,255 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-03 22:13:01,447 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-03 22:13:01,448 - src.transform - INFO - Starting weather data transformation.
+2026-07-03 22:13:01,527 - src.transform - ERROR - Weather data tranformation failed: "['preciptation_nm'] not in index"
+2026-07-03 22:15:07,935 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-03 22:15:08,141 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-03 22:15:08,142 - src.transform - INFO - Starting weather data transformation.
+2026-07-03 22:15:08,179 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
