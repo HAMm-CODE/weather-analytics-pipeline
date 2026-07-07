@@ -41,3 +41,14 @@
 2026-07-07 09:26:45,606 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
 2026-07-07 09:26:45,607 - src.validate - INFO - Starting weather data validation.
 2026-07-07 09:26:45,609 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-07 16:04:17,345 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-07 16:04:17,563 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-07 16:04:17,564 - src.transform - INFO - Starting weather data transformation.
+2026-07-07 16:04:17,646 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-07 16:04:17,647 - src.validate - INFO - Starting weather data validation.
+2026-07-07 16:05:19,187 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-07 16:05:19,350 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-07 16:05:19,352 - src.transform - INFO - Starting weather data transformation.
+2026-07-07 16:05:19,384 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-07 16:05:19,385 - src.validate - INFO - Starting weather data validation.
+2026-07-07 16:05:19,396 - src.validate - INFO - Weather data validation completed successfully.

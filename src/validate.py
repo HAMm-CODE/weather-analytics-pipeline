@@ -41,8 +41,8 @@ def validate_weather_data(df):
 
         # validate_required_columns(df)
         validate_missing_values(df)
-        # validate_duplicate_records(df)
-        # validate_weather_measurements(df)
+        validate_duplicate_records(df)
+        validate_weather_measurements(df)
 
         logger.info("Weather data validation completed successfully.")
 
@@ -92,14 +92,39 @@ def validate_duplicate_records(df):
     """
 
     duplicate_count =df.duplicated(
-        subset=["location_name, "observation_time",]
-    )
+        subset=["location_name", "observation_time",]
+    ).sum()
 
-   if duplicate_count > 0:
+    if duplicate_count > 0:
         raise ValueError(
             f"Found {duplicate_count} duplicate weather records."
         )
 
-        
-def validate_weather_measurement()
+
+def validate_weather_measurements(df):
+    """
+    Validate weather measurement ranges.
+
+    Args:
+        df (pandas.DataFrame): Transformed weather data.
+
+    Raises:
+        ValueError: If weather values are outside realistic ranges.
+    """
     
+    if not df["temperature_celsius"].between(-80, 60).all():
+        raise ValueError("Temperature values must be between -80°C and 50°C ")
+
+    if not df["humidity_percent"].between(0, 100).all():
+        raise ValueError("Humidity values must be between 0  and 100°C ")
+
+    if not (df["precipitation_nm"] >= 0).all():
+        raise ValueError("Precipitation cannot be negative")
+
+    if not (df["wind_speed_kmh"] >= 0).all():
+        raise ValueError("Wind Speed cannot be negative")
+
+    if not df["hour"].between(0, 23).all():
+        raise ValueError(
+            "Hour values must be between 0 and 23."
+        )
