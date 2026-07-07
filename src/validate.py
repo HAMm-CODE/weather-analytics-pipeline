@@ -51,3 +51,32 @@ def validate_weather_data(df):
     except ValueError as error:
         logger.error("Weather data validation failed: %s", error)
         raise
+
+def validate_missing_values(df)
+    """
+    Check for missining in important columns.
+
+    Args:
+        df (pandas.DataFrame): Transformed weather data
+
+    Raises:
+        ValueError:If important columns contain missing values.
+    """
+
+    important_columns = [
+        "location_name",
+        "observation_time",
+        "temperature_celsius",
+        "humidity_perent",
+    ]
+
+    missing_values = df[important_columns].isnull().sum()
+
+    columns_with_missing_values = missing_values[missing_values > 0]
+
+    if not columns_with_missing_values.empty:
+        raise ValueError(
+            "Missing Values found in important columns: "
+            f"{columns_with_missing_values.to_dict()}"
+        )
+    
