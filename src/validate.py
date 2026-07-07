@@ -80,3 +80,26 @@ def validate_missing_values(df):
             f"{columns_with_missing_values.to_dict()}"
         )
     
+def validate_duplicate_records(df):
+    """
+    Check for duplicate records based on location and observation time.
+
+    Args:
+        df (pandas.DataFrame): Transformed weather data.
+
+    Raises:
+        ValueError: If duplicate records are found.
+    """
+
+    duplicate_count =df.duplicated(
+        subset=["location_name, "observation_time",]
+    )
+
+   if duplicate_count > 0:
+        raise ValueError(
+            f"Found {duplicate_count} duplicate weather records."
+        )
+
+        
+def validate_weather_measurement()
+    
