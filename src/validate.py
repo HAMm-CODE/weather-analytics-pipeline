@@ -18,7 +18,7 @@ REQUIRED_COLUMNS = [
     "hour",
     "temperature_celsius",
     "humidity_percent",
-    "precipitaion_nm",
+    "precipitation_nm",
     "wind_speed_kmh",
 ]
 
@@ -39,7 +39,7 @@ def validate_weather_data(df):
     try:
         logger.info("Starting weather data validation.")
 
-        # validate_required_columns(df)
+        validate_required_columns(df)
         validate_missing_values(df)
         validate_duplicate_records(df)
         validate_weather_measurements(df)
@@ -51,6 +51,27 @@ def validate_weather_data(df):
     except ValueError as error:
         logger.error("Weather data validation failed: %s", error)
         raise
+
+
+def validate_required_columns(df):
+    """
+    Check that all required columns exist in the DataFrame.
+
+    Args:
+        df (pandas.DataFrame): Transformed weather data.
+
+    Raises:
+        ValueError: If required columns are missing.
+    """
+
+    missing_columns = [
+        column for column in REQUIRED_COLUMNS
+        if column not in df.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(f"Missing required columns: {missing_columns}")
+    
 
 def validate_missing_values(df):
     """

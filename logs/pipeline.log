@@ -52,3 +52,21 @@
 2026-07-07 16:05:19,384 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
 2026-07-07 16:05:19,385 - src.validate - INFO - Starting weather data validation.
 2026-07-07 16:05:19,396 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-07 16:07:22,372 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-07 16:07:22,605 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-07 16:07:22,606 - src.transform - INFO - Starting weather data transformation.
+2026-07-07 16:07:22,640 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-07 16:07:22,641 - src.validate - INFO - Starting weather data validation.
+2026-07-07 16:07:22,649 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-07 16:07:36,662 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-07 16:07:36,857 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-07 16:07:36,858 - src.transform - INFO - Starting weather data transformation.
+2026-07-07 16:07:36,884 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-07 16:07:36,885 - src.validate - INFO - Starting weather data validation.
+2026-07-07 16:07:36,886 - src.validate - ERROR - Weather data validation failed: Missing required columns: ['precipitaion_nm']
+2026-07-07 16:09:16,766 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-07 16:09:16,928 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-07 16:09:16,930 - src.transform - INFO - Starting weather data transformation.
+2026-07-07 16:09:16,957 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-07 16:09:16,958 - src.validate - INFO - Starting weather data validation.
+2026-07-07 16:09:16,967 - src.validate - INFO - Weather data validation completed successfully.
