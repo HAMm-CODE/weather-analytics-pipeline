@@ -1,0 +1,2 @@
+-- create_tables.sql
+-- SQL schema for the Weather Analytics ETL project
