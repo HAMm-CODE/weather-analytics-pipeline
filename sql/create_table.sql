@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS dim_date(
     date_id INTEGER PRIMARY KEY AUTOINCREMENT,
     full_date DATE NOT NULL UNIQUE,
     day INTEGER NOT NULL,
-    month INTGER NOT NULL,
+    month INTEGER NOT NULL,
     year INTEGER NOT NULL
 );
 
 -- Dimension table: stores time/hour information
 CREATE TABLE IF NOT EXISTS dim_time(
     time_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    hour INTEGER NOT UNIQUE
+    hour INTEGER NOT NULL UNIQUE
 );
 
 -- Fact table: stores weather measurements

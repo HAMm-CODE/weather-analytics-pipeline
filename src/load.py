@@ -32,3 +32,28 @@ def get_database_connection():
     except sqlite3.Error as error:
         logger.error("Database connection failed: %s", error)
         raise
+
+def create_tables(connection):
+    """
+    Create database tables using the SQL schema file.
+
+    Args:
+        connection (sqlite3.Connection): SQLite database connection.
+    """
+
+    try:
+        with open(SQL_SCHEMA_PATH, "r", encoding="utf-8") as file:
+            sql_script = file.read()
+
+        connection.executescript(sql_script)
+        connection.commit()
+
+        logger.info("Database tables created successfully.")
+
+    except FileNotFoundError as error:
+        logger.error("SQL schema file not found: %s", error)
+        raise
+
+    except sqlite3.Error as error:
+        logger.error("Failed to create database tables: %s", error)
+        raise

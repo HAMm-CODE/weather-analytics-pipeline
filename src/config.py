@@ -22,4 +22,4 @@ TIMEZONE = "auto"
 REQUEST_TIMEOUT = 30
 
 DATABASE_PATH = "data/weather.db"
-SQL_SCHEMA_PATH = "sql/create_tables.sql"
+SQL_SCHEMA_PATH = "sql/create_table.sql"

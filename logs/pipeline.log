@@ -70,3 +70,42 @@
 2026-07-07 16:09:16,957 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
 2026-07-07 16:09:16,958 - src.validate - INFO - Starting weather data validation.
 2026-07-07 16:09:16,967 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 17:54:02,732 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-08 17:54:02,913 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-08 17:54:02,915 - src.transform - INFO - Starting weather data transformation.
+2026-07-08 17:54:02,986 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-08 17:54:02,987 - src.validate - INFO - Starting weather data validation.
+2026-07-08 17:54:02,996 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 17:54:03,007 - src.load - INFO - Database connection established successfully
+2026-07-08 18:23:54,368 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-08 18:23:54,552 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-08 18:23:54,554 - src.transform - INFO - Starting weather data transformation.
+2026-07-08 18:23:54,630 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-08 18:23:54,631 - src.validate - INFO - Starting weather data validation.
+2026-07-08 18:23:54,639 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 18:23:54,650 - src.load - INFO - Database connection established successfully
+2026-07-08 18:23:54,651 - src.load - ERROR - SQL schema file not found: [Errno 2] No such file or directory: 'sql/create_tables.sql'
+2026-07-08 18:28:10,469 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-08 18:28:10,625 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-08 18:28:10,626 - src.transform - INFO - Starting weather data transformation.
+2026-07-08 18:28:10,651 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-08 18:28:10,652 - src.validate - INFO - Starting weather data validation.
+2026-07-08 18:28:10,658 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 18:28:10,660 - src.load - INFO - Database connection established successfully
+2026-07-08 18:28:10,700 - src.load - ERROR - Failed to create database tables: near "UNIQUE": syntax error
+2026-07-08 18:40:17,998 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-08 18:40:18,180 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-08 18:40:18,181 - src.transform - INFO - Starting weather data transformation.
+2026-07-08 18:40:18,255 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-08 18:40:18,256 - src.validate - INFO - Starting weather data validation.
+2026-07-08 18:40:18,264 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 18:40:18,274 - src.load - INFO - Database connection established successfully
+2026-07-08 18:40:18,280 - src.load - ERROR - Failed to create database tables: near "UNIQUE": syntax error
+2026-07-08 18:46:51,261 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-08 18:46:51,459 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-08 18:46:51,461 - src.transform - INFO - Starting weather data transformation.
+2026-07-08 18:46:51,581 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-08 18:46:51,582 - src.validate - INFO - Starting weather data validation.
+2026-07-08 18:46:51,593 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-08 18:46:51,602 - src.load - INFO - Database connection established successfully
+2026-07-08 18:46:51,633 - src.load - INFO - Database tables created successfully.
