@@ -45,5 +45,21 @@ CREATE TABLE IF NOT EXISTS fact_weather (
     UNIQUE(location_id, observation_time)
 );
 
+-- Staging table for  ETL workflow
+CREATE TABLE IF NOT EXISTS stg_weather_raw (
+    raw_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location_name TEXT,
+    latitude REAL,
+    longitude REAL,
+    timezone TEXT,
+    raw_json TEXT NOT NULL,
+    loaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
+-- Fact tables store quantitative measurements and metrics from business events (e.g., sales amounts, quantities, timestamps) and contain foreign keys linked to dimension tables. Dimension tables provide descriptive context for those events (e.g., customer names, product categories, store locations) and contain the primary keys that link back to the fact table
+
+-- Where?  → dim_location
+-- When date? → dim_date
+-- When hour? → dim_time
+-- What happened? → fact_weather
 
