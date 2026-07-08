@@ -57,3 +57,41 @@ def create_tables(connection):
     except sqlite3.Error as error:
         logger.error("Failed to create database tables: %s", error)
         raise
+
+def load_location_dimension(connection, df):
+    """
+    Load location data into dim_location.
+
+    Args:
+        connection (sqlite3.Connection): SQLite database connection.
+        df (pandas.DataFrame): Validate weather data.
+    """
+
+    location = df[
+        ["location_name", "latitude", "longitude", "timezone"]
+    ].drop_duplicates()
+
+    insert_query = """
+        INSERT OR IGNORE INTO dim_location (
+            location_name,
+            latitude,
+            longitude,
+            timezone
+        )
+        VALUES (?, ?, ?, ?);
+    """
+
+    for _, row in location.iterrows():
+        connection.execute(
+            insert_query,
+            (
+                row["location_name"],
+                row["latitude"],
+                row["longitude"],
+                row["timezone"],
+            ),
+        )
+    
+    connection.commit()
+
+    logger.info("Location dimension loaded successfully.")
