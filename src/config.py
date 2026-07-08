@@ -20,3 +20,6 @@ HOURLY_VARIABLES = [
 FORECAST_DAYS = 1
 TIMEZONE = "auto"
 REQUEST_TIMEOUT = 30
+
+DATABASE_PATH = "data/weather.db"
+SQL_SCHEMA_PATH = "sql/create_tables.sql"
