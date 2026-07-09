@@ -133,3 +133,29 @@ def load_date_dimension(connection, df):
     connection.commit()
 
     logger.info("Date dimesion loaded successfully.")
+
+def load_time_dimension(connection, df):
+    """
+    Load hour data into dim_time.
+
+    Args:
+        connection (sqlite3.Connection): SQLite database connection.
+        df (pandas.DataFrame): Validate weather data.
+    """
+
+    unique_hours = df[["hour"]].drop_duplicates()
+
+    insert_query = """
+        INSERT OR IGNORE INTO dim_time (hour)
+        VALUES (?);
+    """
+
+    for _,row in unique_hours.iterrows():
+        connection.execute(
+            insert_query,
+            (int(row["hour"]),),
+        )
+
+    connection.commit()
+
+    logger.info("Time dimension loaded successfully.")
