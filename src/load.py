@@ -296,3 +296,35 @@ def load_fact_weather(connection, df):
 
     logger.info("Fact weather table loaded successfully.")
 
+def load_weather_data(df):
+    """
+    Load validated weather data into the database.
+
+    Args:
+        df (pandas.DataFrame): Validate weather data.
+    """
+
+    connection = None
+
+    try:
+        logger.info("Starting weather data load process.")
+
+        connection = get_database_connection()
+
+        create_tables(connection)
+
+        load_location_dimension(connection, df)
+        load_date_dimension(connection, df)
+        load_time_dimension(connection, df)
+        load_fact_weather(connection, df)
+
+        logger.info("Weather data loaded into database successfully.")
+
+    except sqlite3.Error as error:
+        logger.error("Database loading failed: %s", error)
+        raise
+
+    finally:
+        if connection:
+            connection.close()
+            logger.info("Database connection closed.")
