@@ -95,3 +95,41 @@ def load_location_dimension(connection, df):
     connection.commit()
 
     logger.info("Location dimension loaded successfully.")
+
+def load_date_dimension(connection, df):
+    """
+    Load data data into dim_date.
+
+    Args:
+        connection (sqlite.Connection): SQLite database connection.
+        df (pandas.DataFrame): Validated weather data.
+    """
+
+    unique_dates = df[["date"]].drop_duplicates()
+
+    insert_query = """
+        INSERT OR IGNORE INTO dim_date (
+            full_date,
+            day,
+            month,
+            year
+        )
+        VALUES (?, ?, ?, ?);
+    """
+
+    for _,row in unique_dates.iterrows():
+        date_value = pd.to_datetime(row["date"])
+
+        connection.execute(
+            insert_query,
+            (
+                str(date_value.date()),
+                int(date_value.day),
+                int(date_value.month),
+                int(date_value.year),
+            )
+        )
+
+    connection.commit()
+
+    logger.info("Date dimesion loaded successfully.")
