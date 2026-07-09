@@ -109,3 +109,14 @@
 2026-07-08 18:46:51,593 - src.validate - INFO - Weather data validation completed successfully.
 2026-07-08 18:46:51,602 - src.load - INFO - Database connection established successfully
 2026-07-08 18:46:51,633 - src.load - INFO - Database tables created successfully.
+2026-07-09 17:52:24,964 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 17:52:25,148 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-09 17:52:25,150 - src.transform - INFO - Starting weather data transformation.
+2026-07-09 17:52:25,238 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-09 17:52:25,239 - src.validate - INFO - Starting weather data validation.
+2026-07-09 17:52:25,247 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-09 17:52:25,262 - src.load - INFO - Database connection established successfully
+2026-07-09 17:52:25,282 - src.load - INFO - Database tables created successfully.
+2026-07-09 17:52:25,298 - src.load - INFO - Time dimension loaded successfully.
+2026-07-09 17:52:25,315 - src.load - INFO - Location dimension loaded successfully.
+2026-07-09 17:52:25,333 - src.load - INFO - Date dimesion loaded successfully.

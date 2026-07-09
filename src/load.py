@@ -159,3 +159,32 @@ def load_time_dimension(connection, df):
     connection.commit()
 
     logger.info("Time dimension loaded successfully.")
+
+def get_location_id(connection, location_name, latitude, longitude):
+    """
+    Get location_id from dim_location.
+
+    Args:
+        connection (sqlite3.Connection): SQLite database connection.
+        location_name (str): Location name.
+        latitude (float): Latitude.
+        longitude (float): Longitude.
+
+    Returns:
+        int: location: location_id
+    """
+
+    query = """
+        SELECT location_id
+        FROM dim_location
+        WHERE location_name = ?
+            AND latitude = ?
+            AND LONFITUDE = ?;
+    """
+
+    result = connection.execute(
+        query,
+        (location_name, latitude, longitude),
+    ).fetchone()
+
+    return result[0]
