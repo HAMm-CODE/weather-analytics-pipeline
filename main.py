@@ -6,10 +6,8 @@ Entry point running the weather ETL project manually
 
 import logging
 
-from src.extract import extract_weather_data
-from src.transform import transform_weather_data
-from src.validate import validate_weather_data
-from src.load import load_weather_data
+from src.pipeline import WeatherETLPipeline
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,13 +19,7 @@ logging.basicConfig(
 )
 
 if __name__ == "__main__":
-    raw_weather_data = extract_weather_data()
-
-    clean_weather_data = transform_weather_data(raw_weather_data)
-
-    validated_weather_data = validate_weather_data(clean_weather_data)
-
-    load_weather_data(validated_weather_data)
+    pipeline = WeatherETLPipeline()
+    pipeline.run()
 
     print("ETL pipeline completed successfully!")
-
