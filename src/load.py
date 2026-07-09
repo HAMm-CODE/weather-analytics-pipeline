@@ -13,6 +13,7 @@ from src.config import DATABASE_PATH, SQL_SCHEMA_PATH
 
 logger = logging.getLogger(__name__)
 
+
 def get_database_connection():
     """
     Create and return a SQLite database connection.
@@ -32,6 +33,7 @@ def get_database_connection():
     except sqlite3.Error as error:
         logger.error("Database connection failed: %s", error)
         raise
+
 
 def create_tables(connection):
     """
@@ -57,6 +59,7 @@ def create_tables(connection):
     except sqlite3.Error as error:
         logger.error("Failed to create database tables: %s", error)
         raise
+
 
 def load_location_dimension(connection, df):
     """
@@ -96,6 +99,7 @@ def load_location_dimension(connection, df):
 
     logger.info("Location dimension loaded successfully.")
 
+
 def load_date_dimension(connection, df):
     """
     Load data data into dim_date.
@@ -134,6 +138,7 @@ def load_date_dimension(connection, df):
 
     logger.info("Date dimesion loaded successfully.")
 
+
 def load_time_dimension(connection, df):
     """
     Load hour data into dim_time.
@@ -159,6 +164,7 @@ def load_time_dimension(connection, df):
     connection.commit()
 
     logger.info("Time dimension loaded successfully.")
+
 
 def get_location_id(connection, location_name, latitude, longitude):
     """
@@ -188,3 +194,52 @@ def get_location_id(connection, location_name, latitude, longitude):
     ).fetchone()
 
     return result[0]
+
+
+def get_date_id(connection, date_value):
+    """
+    Get date_id from dim_date.
+
+    Args:
+        connection (sqlite.Connection): SQLITE database connection.
+        date_value: Date value.
+
+    Returns:
+        int: date_id.
+    """
+
+    query ="""
+        SELECT data_id
+        FROM dim_date
+        WHERE full_date = ?;
+    """
+
+    formatted_date = str(pd.to_datetime(date_value).date())
+
+    result = connection.execute(query, (formatted_date,)).fetchone()
+
+    return result[0]
+
+
+def get_time_id(connection, hour):
+    """
+    Get time_id from dime_time.
+
+    Args:
+        connectiion (sqlite3.connection): SQLite database connection.
+        hour (int): Hour of day
+
+    Returns:
+        int: time_id.
+    """
+
+    query = """
+        SELECT time_id
+        FROM dim_time
+        WHERE hour = ?;
+    """
+    
+    result = connection.execute(query, (int(hour))).fetchone()
+
+    return result[0]
+
