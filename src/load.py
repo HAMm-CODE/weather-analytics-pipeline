@@ -243,3 +243,56 @@ def get_time_id(connection, hour):
 
     return result[0]
 
+
+def load_fact_weather(connection, df):
+    """
+    Load weather measurements into fact_weather.
+
+    Args:
+        connection (sqlite3.Connection): SQLite database connection.
+        df (pandas.DataFrame): Validated weather data.
+    """
+
+    insert_query = """
+        INSERT OR IGNORE INTO fact_weather (
+            location_id,
+            date_id,
+            time_id,
+            observation_time,
+            temperature_celsius,
+            humidity_percent,
+            precipitation_nm,
+            wind_speed_kmh
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+    """
+
+    for _, row in df.iterrows():
+        location_id = get_location_id(
+            connection,
+            row["location_name"],
+            row["latitude"],
+            row["longitude"],
+        )
+
+        date_id = get_date_id(connection, row["date"])
+        time_id = get_time_id(connection, row["hour"])
+
+        connection.execute(
+            insert_query,
+            (
+                location_id,
+                date_id,
+                time_id,
+                str(row["observation_time"]),
+                row["temperature_celsius"],
+                row["humidity_percent"],
+                row["precipitation_nm"],
+                row["wind_speed_kmh"]
+            )
+        )
+    
+    connection.commit()
+
+    logger.info("Fact weather table loaded successfully.")
+
