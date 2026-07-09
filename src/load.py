@@ -185,7 +185,7 @@ def get_location_id(connection, location_name, latitude, longitude):
         FROM dim_location
         WHERE location_name = ?
             AND latitude = ?
-            AND LONFITUDE = ?;
+            AND longitude = ?;
     """
 
     result = connection.execute(
@@ -209,7 +209,7 @@ def get_date_id(connection, date_value):
     """
 
     query ="""
-        SELECT data_id
+        SELECT date_id
         FROM dim_date
         WHERE full_date = ?;
     """
@@ -223,10 +223,10 @@ def get_date_id(connection, date_value):
 
 def get_time_id(connection, hour):
     """
-    Get time_id from dime_time.
+    Get time_id from dim_time.
 
     Args:
-        connectiion (sqlite3.connection): SQLite database connection.
+        connection (sqlite3.connection): SQLite database connection.
         hour (int): Hour of day
 
     Returns:
@@ -239,7 +239,7 @@ def get_time_id(connection, hour):
         WHERE hour = ?;
     """
     
-    result = connection.execute(query, (int(hour))).fetchone()
+    result = connection.execute(query, (int(hour),)).fetchone()
 
     return result[0]
 

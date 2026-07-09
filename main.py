@@ -9,7 +9,7 @@ import logging
 from src.extract import extract_weather_data
 from src.transform import transform_weather_data
 from src.validate import validate_weather_data
-from src.load import get_database_connection, create_tables, load_location_dimension, load_date_dimension, load_time_dimension,  get_location_id
+from src.load import load_weather_data
 
 logging.basicConfig(
     level=logging.INFO,
@@ -27,13 +27,7 @@ if __name__ == "__main__":
 
     validated_weather_data = validate_weather_data(clean_weather_data)
 
-    # load_weather_data(validated_weather_data)
-    connection = get_database_connection()
-    create_tables(connection)
-    load_time_dimension(connection, validated_weather_data)
-    load_location_dimension(connection, validated_weather_data)
-    load_date_dimension(connection, validated_weather_data)
+    load_weather_data(validated_weather_data)
 
-    # get_location_id(connection, )
     print("ETL pipeline completed successfully!")
 

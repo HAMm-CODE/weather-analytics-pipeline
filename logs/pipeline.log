@@ -120,3 +120,62 @@
 2026-07-09 17:52:25,298 - src.load - INFO - Time dimension loaded successfully.
 2026-07-09 17:52:25,315 - src.load - INFO - Location dimension loaded successfully.
 2026-07-09 17:52:25,333 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-09 20:56:34,805 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 20:56:35,038 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-09 20:56:35,040 - src.transform - INFO - Starting weather data transformation.
+2026-07-09 20:56:35,118 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-09 20:56:35,119 - src.validate - INFO - Starting weather data validation.
+2026-07-09 20:56:35,132 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-09 20:56:35,132 - src.load - INFO - Starting weather data load process.
+2026-07-09 20:56:35,149 - src.load - INFO - Database connection established successfully
+2026-07-09 20:56:35,177 - src.load - INFO - Database tables created successfully.
+2026-07-09 20:56:35,198 - src.load - INFO - Location dimension loaded successfully.
+2026-07-09 20:56:35,215 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-09 20:56:35,229 - src.load - INFO - Time dimension loaded successfully.
+2026-07-09 20:56:35,234 - src.load - ERROR - Database loading failed: no such column: LONFITUDE
+2026-07-09 20:56:35,235 - src.load - INFO - Database connection closed.
+2026-07-09 20:57:16,094 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 20:57:16,292 - src.extract - ERROR - API request failed: 502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=61.4991&longitude=23.7871&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m&timezone=auto&forecast_days=1
+2026-07-09 21:04:46,145 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 21:04:46,400 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-09 21:04:46,405 - src.transform - INFO - Starting weather data transformation.
+2026-07-09 21:04:46,534 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-09 21:04:46,536 - src.validate - INFO - Starting weather data validation.
+2026-07-09 21:04:46,554 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-09 21:04:46,557 - src.load - INFO - Starting weather data load process.
+2026-07-09 21:04:46,583 - src.load - INFO - Database connection established successfully
+2026-07-09 21:04:46,598 - src.load - INFO - Database tables created successfully.
+2026-07-09 21:04:46,619 - src.load - INFO - Location dimension loaded successfully.
+2026-07-09 21:04:46,638 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-09 21:04:46,648 - src.load - INFO - Time dimension loaded successfully.
+2026-07-09 21:04:46,655 - src.load - ERROR - Database loading failed: no such column: data_id
+2026-07-09 21:04:46,656 - src.load - INFO - Database connection closed.
+2026-07-09 21:08:33,602 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 21:08:33,861 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-09 21:08:33,865 - src.transform - INFO - Starting weather data transformation.
+2026-07-09 21:08:33,985 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-09 21:08:33,986 - src.validate - INFO - Starting weather data validation.
+2026-07-09 21:08:34,007 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-09 21:08:34,008 - src.load - INFO - Starting weather data load process.
+2026-07-09 21:08:34,026 - src.load - INFO - Database connection established successfully
+2026-07-09 21:08:34,039 - src.load - INFO - Database tables created successfully.
+2026-07-09 21:08:34,071 - src.load - INFO - Location dimension loaded successfully.
+2026-07-09 21:08:34,098 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-09 21:08:34,116 - src.load - INFO - Time dimension loaded successfully.
+2026-07-09 21:08:34,124 - src.load - ERROR - Database loading failed: parameters are of unsupported type
+2026-07-09 21:08:34,127 - src.load - INFO - Database connection closed.
+2026-07-09 21:13:56,570 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-09 21:13:56,795 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-09 21:13:56,797 - src.transform - INFO - Starting weather data transformation.
+2026-07-09 21:13:56,903 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-09 21:13:56,904 - src.validate - INFO - Starting weather data validation.
+2026-07-09 21:13:56,914 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-09 21:13:56,915 - src.load - INFO - Starting weather data load process.
+2026-07-09 21:13:56,929 - src.load - INFO - Database connection established successfully
+2026-07-09 21:13:56,935 - src.load - INFO - Database tables created successfully.
+2026-07-09 21:13:56,949 - src.load - INFO - Location dimension loaded successfully.
+2026-07-09 21:13:56,959 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-09 21:13:56,964 - src.load - INFO - Time dimension loaded successfully.
+2026-07-09 21:13:56,980 - src.load - INFO - Fact weather table loaded successfully.
+2026-07-09 21:13:56,980 - src.load - INFO - Weather data loaded into database successfully.
+2026-07-09 21:13:56,981 - src.load - INFO - Database connection closed.
