@@ -67,14 +67,14 @@ FROM fact_weather fw
 JOIN dim_time dt
     ON fw.time_id = dt.time_id
 GROUP BY dt.hour
-ORDER BY dt.hour
+ORDER BY dt.hour;
 
 -- 6. Average wind speed by hour
 SELECT
     dt.hour,
     ROUND(AVG(fw.wind_speed_kmh), 2) AS avg_wind_speed_kmh
 FROM fact_weather fw
-JOIN dim_date dt
+JOIN dim_time dt
     ON fw.time_id = dt.time_id
 GROUP BY dt.hour
 ORDER BY dt.hour;
@@ -84,7 +84,7 @@ SELECT
     dl.location_name,
     dd.full_date,
     dt.hour,
-    fw.temperature_celsisu
+    fw.temperature_celsius
 FROM fact_weather fw
 JOIN dim_location dl
     ON fw.location_id = dl.location_id
@@ -92,7 +92,7 @@ JOIN dim_date dd
     ON fw.date_id = dd.date_id
 JOIN dim_time dt
     ON fw.time_id = dt.time_id
-ORDER BY fw.temperature_celsisus DESC
+ORDER BY fw.temperature_celsius DESC
 LIMIT 1;
 
 -- 8. Coldest recorded hour
