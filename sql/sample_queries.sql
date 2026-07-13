@@ -31,3 +31,18 @@ FROM fact_weather fw
 JOIN dim_location dl
      ON fw.location_id = dl.locaion_id
 GROUP BY dl.location_name;
+
+-- 3. Minimum and maximum temperature by date
+SELECT
+    dl.location_name,
+    dd.full_date,
+    ROUND(MIN(fw.temperature_celsius), 2) AS min_temperature_celsius,
+    ROUND(MAX(fw.temperature_celsius), 2) AS max_temperature_celsius
+FROM fact_weather fw
+JOIN dim_location dl
+    ON fw.location_id = dl.location_id
+JOIN dim_date dd
+    ON fw.date_id = dd.date_id
+GROUP BY dl.locaion_name, dd.full_name
+ORDER BY dd.full_date;
+
