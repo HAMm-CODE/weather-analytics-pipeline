@@ -27,7 +27,7 @@ def test_transform_weather_data_returns_clean_dataframe():
     assert "observation_time" in df.columns
     assert "temperature_celsius" in df.columns
     assert "humidity_percent" in df.columns
-    assert "precipitation_mm" in df.columns
+    assert "precipitation_nm" in df.columns
     assert "wind_speed_kmh" in df.columns
 
     assert df.loc[0, "location_name"] == "Tampere"

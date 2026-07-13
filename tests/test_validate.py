@@ -9,6 +9,7 @@ import pytest
 
 from src.validate import validate_weather_data
 
+
 def create_valid_weather_dataframe():
     return pd.DataFrame(
         {
@@ -21,10 +22,11 @@ def create_valid_weather_dataframe():
             "hour": [0],
             "temperature_celsius": [15.5],
             "humidity_percent": [80],
-            "precipitation_mm": [0.0],
+            "precipitation_nm": [0.0],
             "wind_speed_kmh": [8.5],
         }
     )
+
 
 def test_validate_weather_data_passes_with_valid_data():
     df = create_valid_weather_dataframe()
@@ -33,3 +35,12 @@ def test_validate_weather_data_passes_with_valid_data():
 
     assert validate_df is not None
     assert len(validate_df) == 1
+
+
+def test_validate_weather_data_fails_with_missing_column():
+    df = create_valid_weather_dataframe()
+
+    df = df.drop(columns=["temperature_celsius"])
+
+    with pytest.raises(ValueError, match="Missing required columns"):
+        validate_weather_data(df)
