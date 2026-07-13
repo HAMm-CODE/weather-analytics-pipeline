@@ -21,4 +21,13 @@
     JOIN dim_date dt
         ON fw.time_id = dt.time_id
     ORDER BY fw.observation_time;
-    
+
+
+-- 2 Average temperature by location
+SELECT
+    dl.location_name,
+    ROUND(AVG(fw.temperature_celsius), 2) AS avg_temperature_celsius
+FROM fact_weather fw
+JOIN dim_location dl
+     ON fw.location_id = dl.locaion_id
+GROUP BY dl.location_name;
