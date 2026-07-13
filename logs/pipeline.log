@@ -179,3 +179,20 @@
 2026-07-09 21:13:56,980 - src.load - INFO - Fact weather table loaded successfully.
 2026-07-09 21:13:56,980 - src.load - INFO - Weather data loaded into database successfully.
 2026-07-09 21:13:56,981 - src.load - INFO - Database connection closed.
+2026-07-10 02:48:55,875 - src.pipeline - INFO - Weather ETL pipeline started.
+2026-07-10 02:48:55,878 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-10 02:48:56,092 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-10 02:48:56,094 - src.transform - INFO - Starting weather data transformation.
+2026-07-10 02:48:56,168 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-10 02:48:56,169 - src.validate - INFO - Starting weather data validation.
+2026-07-10 02:48:56,174 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-10 02:48:56,174 - src.load - INFO - Starting weather data load process.
+2026-07-10 02:48:56,185 - src.load - INFO - Database connection established successfully
+2026-07-10 02:48:56,204 - src.load - INFO - Database tables created successfully.
+2026-07-10 02:48:56,219 - src.load - INFO - Location dimension loaded successfully.
+2026-07-10 02:48:56,231 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-10 02:48:56,238 - src.load - INFO - Time dimension loaded successfully.
+2026-07-10 02:48:56,253 - src.load - INFO - Fact weather table loaded successfully.
+2026-07-10 02:48:56,254 - src.load - INFO - Weather data loaded into database successfully.
+2026-07-10 02:48:56,254 - src.load - INFO - Database connection closed.
+2026-07-10 02:48:56,255 - src.pipeline - INFO - Weather ETL pipeline completed successfully.
