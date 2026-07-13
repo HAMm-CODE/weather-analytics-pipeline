@@ -110,3 +110,8 @@ JOIN dim_time dt
     ON fw.time_id = dt.time_id
 ORDER BY fw.temperature_celsius ASC
 LIMIT 1;
+
+-- 9. Count number of records loaded into fact table
+SELECT
+    COUNT(*) AS total_weather_records
+FROM fact_weather;
