@@ -15,10 +15,10 @@
         fw.wind_speed_kmh
     FROM fact_weather fw
     JOIN dim_location dl
-        ON fw.locaion_id = dl.location_id
+        ON fw.location_id = dl.location_id
     JOIN dim_date dd
         ON fw.date_id = dd.date_id
-    JOIN dim_date dt
+    JOIN dim_time dt
         ON fw.time_id = dt.time_id
     ORDER BY fw.observation_time;
 
@@ -29,7 +29,7 @@ SELECT
     ROUND(AVG(fw.temperature_celsius), 2) AS avg_temperature_celsius
 FROM fact_weather fw
 JOIN dim_location dl
-     ON fw.location_id = dl.locaion_id
+     ON fw.location_id = dl.location_id
 GROUP BY dl.location_name;
 
 -- 3. Minimum and maximum temperature by date
@@ -43,13 +43,13 @@ JOIN dim_location dl
     ON fw.location_id = dl.location_id
 JOIN dim_date dd
     ON fw.date_id = dd.date_id
-GROUP BY dl.locaion_name, dd.full_name
+GROUP BY dl.location_name, dd.full_name
 ORDER BY dd.full_date;
 
 -- 4. Total precipitation by date
 SELECT
     dl.location_name,
-    dd.full_name,
+    dd.full_date,
     ROUND(SUM(fw.precipitation_nm), 2) AS total_precipitation_nm
 FROM fact_weather fw
 JOIN dim_location dl
