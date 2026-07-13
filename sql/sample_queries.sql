@@ -93,4 +93,20 @@ JOIN dim_date dd
 JOIN dim_time dt
     ON fw.time_id = dt.time_id
 ORDER BY fw.temperature_celsisus DESC
-LIMIT 1
+LIMIT 1;
+
+-- 8. Coldest recorded hour
+SELECT
+    dl.location_name,
+    dd.full_date,
+    dt.hour,
+    fw.temperature_celsius
+FROM fact_weather fw
+JOIN dim_location dl
+    ON fw.location_id = dl.location_id
+JOIN dim_date dd
+    ON fw.date_id = dd.date_id
+JOIN dim_time dt
+    ON fw.time_id = dt.time_id
+ORDER BY fw.temperature_celsius ASC
+LIMIT 1;
