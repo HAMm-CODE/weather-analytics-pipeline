@@ -25,3 +25,11 @@ def create_valid_weather_dataframe():
             "wind_speed_kmh": [8.5],
         }
     )
+
+def test_validate_weather_data_passes_with_valid_data():
+    df = create_valid_weather_dataframe()
+
+    validate_df = validate_weather_data(df)
+
+    assert validate_df is not None
+    assert len(validate_df) == 1
