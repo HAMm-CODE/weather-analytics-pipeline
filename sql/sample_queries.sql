@@ -46,3 +46,15 @@ JOIN dim_date dd
 GROUP BY dl.locaion_name, dd.full_name
 ORDER BY dd.full_date;
 
+-- 4. Total precipitation by date
+SELECT
+    dl.location_name,
+    dd.full_name,
+    ROUND(SUM(fw.precipitation_nm), 2) AS total_precipitation_nm
+FROM fact_weather fw
+JOIN dim_location dl
+    ON fw.location_id = dl.dim_location
+JOIN dim_date dd
+    ON fw.date_id = dd.date_id
+GROUP BY dl.location_name, dd.full_date
+ORDER by dd.full_date;
