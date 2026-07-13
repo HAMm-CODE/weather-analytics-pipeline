@@ -58,3 +58,13 @@ JOIN dim_date dd
     ON fw.date_id = dd.date_id
 GROUP BY dl.location_name, dd.full_date
 ORDER by dd.full_date;
+
+-- 5. Average humidity by hour
+SELECT
+    dt.hour,
+    ROUND(AVG(fw.humidity_percent), 2) AS avg_humidity_percent
+FROM fact_weather fw
+JOIN dim_time dt
+    ON fw.time_id = dt.time_id
+GROUP BY dt.hour
+ORDER BY dt.hour
