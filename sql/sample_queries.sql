@@ -115,3 +115,22 @@ LIMIT 1;
 SELECT
     COUNT(*) AS total_weather_records
 FROM fact_weather;
+
+-- 10. Check records in each dimension table
+SELECT 'dim_location' AS table_name, COUNT(*) AS total_records
+FROM dim_location
+
+UNION ALL 
+
+SELECT 'dim_date' AS table_name, COUNT(*) AS total_records
+FROM dim_date
+
+UNION ALL
+
+SELECT 'dim_time' AS table_name, COUNT(*) AS total_records
+FROM dim_time
+
+UNION ALL
+
+SELECT 'fact_weather' AS table_name, COUNT(*) AS total_records
+FROM fact_weather;
