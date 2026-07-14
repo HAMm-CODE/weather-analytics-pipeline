@@ -29,3 +29,15 @@ class MockResponse:
         }
     
 
+def test_extract_weather_daat_returns_expected_data(monkeypatch):
+    def mock_get(*args, **kwargs):
+        return MockResponse()
+    
+    monkeypatch.setattr("requests.get", mock_get)
+
+    data = extract_weather_data()
+
+    assert "hourly" in data
+    assert "time" in data["hourly"]
+    assert data["location_name"] == "Tampere"
+    assert data["hourly"]["temperature_2m"][0] == 15.5
