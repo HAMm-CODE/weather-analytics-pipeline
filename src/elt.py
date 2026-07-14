@@ -18,6 +18,7 @@ import sqlite3
 
 from src.extract import extract_weather_data
 from src.transform import transform_weather_data
+from src.validate import validate_weather_data
 from src.load import (
     create_tables,
     get_database_connection,
@@ -122,3 +123,43 @@ def get_latest_raw_weather_data_from_staging():
         if connection:
             connection.close()
             logger.info("Database connection closed after staging read.")
+
+
+class WeatherELTWorkflow:
+    """
+    A reusable class that runs the simple ELT workflow.
+
+    ELT steps:
+    1. Extract raw data from the API
+    2. Load raw data into staging table
+    3. Read staged raw data
+    4. Transform staged data
+    5. Validate transformed data
+    6. Load clean data into final star schema
+    """
+
+    def run(self):
+        """
+        Run the full ELT workflow.
+        """
+
+        try:
+            logger.info("Weather ELT workflow started.")
+
+            raw_weather_data = extract_weather_data()
+
+            load_raw_weather_data_to_staging(raw_weather_data)
+
+            staged_raw_weather_data = get_latest_raw_weather_data_from_staging()
+
+            clean_weather_data = transform_weather_data(staged_raw_weather_data)
+
+            validated_weather_data = validate_weather_data(clean_weather_data)
+
+            load_weather_data(validated_weather_data)
+
+            logger.info("Weather ELT workflow completed successfully.")
+            
+        except Exception as error:
+            logger.error("Weather ELT workflow failed: %s", error)
+            raise
