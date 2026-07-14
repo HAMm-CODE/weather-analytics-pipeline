@@ -134,3 +134,14 @@ UNION ALL
 
 SELECT 'fact_weather' AS table_name, COUNT(*) AS total_records
 FROM fact_weather;
+
+-- 11. View raw records loaded into the staging table
+SELECT
+    raw_id,
+    location_name,
+    latitude,
+    longitude,
+    timezone,
+    loaded_at
+FROM stg_weather_raw
+ORDER BY raw_id DESC;
