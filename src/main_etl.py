@@ -17,3 +17,10 @@ logging.basicConfig(
         logging.StreamHandler(),
     ],
 )
+
+
+if __name__ == "__main__":
+    workflow = WeatherELTWorkflow()
+    workflow.run()
+
+    print("Weather ELT workflow completed successfully!")
