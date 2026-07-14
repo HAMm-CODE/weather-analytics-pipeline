@@ -25,3 +25,57 @@ from src.load import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def load_raw_weather_data_to_staging(raw_data):
+    """
+    Load raw weather API JSON into the staging table.
+
+    Args:
+        raw_data (dict): Raw weather data extracted from the API.
+    """
+
+    connection = None
+
+    try:
+        logger.info("Starting raw weather data load into staging table.")
+
+        connection = get_database_connection()
+        create_tables(connection)
+
+        insert_query = """
+            INSERT INTO stg_weather_raw (
+                location_name,
+                latitude,
+                longitude,
+                timezone,
+                raw_json
+            )
+            VALUES (?, ?, ?, ?, ?);
+        """
+
+        connection.execute(
+            insert_query,
+            (
+                raw_data.get("location_name"),
+                raw_data.get("latitude"),
+                raw_data.get("longitude"),
+                raw_data.get("timezone"),
+                json.dumps(raw_data),
+            ),
+        )
+
+        connection.commit()
+
+        logger.info("Raw weather data loaded into staging table successfully.")
+
+    except sqlite3.Error as error:
+        logger.error("Failed to load raw weather data into staging: %s", error)
+        raise
+    
+    finally:
+        if connection:
+            connection.close()
+            logger.info("Database connection closed after staging load.")
+
+
