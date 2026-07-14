@@ -79,3 +79,46 @@ def load_raw_weather_data_to_staging(raw_data):
             logger.info("Database connection closed after staging load.")
 
 
+def get_latest_raw_weather_data_from_staging():
+    """
+    Retrieve the latest raw weather JSON record from the staging table.
+
+    Returns:
+        dict: Raw weather data loaded from the staging table.
+    """
+
+    connection = None
+
+    try:
+        logger.info("Reading latest raw weather data from staging table.")
+
+        connection = get_database_connection()
+        create_tables(connection)
+
+        query = """
+            SELECT raw_json
+            FROM stg_weather_raw
+            ORDER BY raw_id DESC
+            LIMIT 1;
+        """
+
+        result = connection.execute(query).fetchone()
+
+        if result is None:
+            raise ValueError("No raw weather data found in staging table.")
+
+        raw_json = result[0]
+        raw_data = json.loads(raw_json)
+
+        logger.info("Latest raw weather data retrieved from staging table.")
+
+        return raw_data
+
+    except sqlite3.Error as error:
+        logger.error("Failed to read raw weather data from staging: %s", error)
+        raise
+
+    finally:
+        if connection:
+            connection.close()
+            logger.info("Database connection closed after staging read.")
