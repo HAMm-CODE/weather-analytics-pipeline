@@ -15,3 +15,13 @@ ELT flow:
 import json
 import logging
 import sqlite3
+
+from src.extract import extract_weather_data
+from src.transform import transform_weather_data
+from src.load import (
+    create_tables,
+    get_database_connection,
+    load_weather_data,
+)
+
+logger = logging.getLogger(__name__)
