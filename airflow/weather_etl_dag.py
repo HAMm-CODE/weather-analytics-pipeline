@@ -66,3 +66,30 @@ def transform_task(**context):
         key="clean_weather_data",
         value=clean_data_json,
     )
+
+
+def validate_task(**context):
+    """
+    Validate transformed weather data.
+    """
+
+    import pandas as pd
+
+    clean_data_json = context["ti"].xcom_pull(
+        task_ids="transform_weather_data",
+        key="clean_weather_data",
+    )
+
+    clean_data = pd.read_json(clean_data_json)
+
+    validated_data = validate_weather_data(clean_data)
+
+    validated_data_json = validated_data.to_json(
+        orient="records",
+        date_format="iso",
+    )
+
+    context["ti"].xcom_push(
+        key="validated_weather_data",
+        value=validated_data_json,
+    )
