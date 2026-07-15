@@ -30,3 +30,15 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
+
+def extract_task(**context):
+    """
+    Extract weather data from the Open-Meteo API.
+    """
+
+    raw_data = extract_weather_data()
+
+    context["ti"].xcom_push(
+        key="raw_weather_data",
+        value=raw_data,
+    )
