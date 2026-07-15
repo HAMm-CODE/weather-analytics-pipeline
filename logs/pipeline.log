@@ -213,3 +213,38 @@
 2026-07-14 00:57:42,174 - src.load - INFO - Weather data loaded into database successfully.
 2026-07-14 00:57:42,175 - src.load - INFO - Database connection closed.
 2026-07-14 00:57:42,176 - src.pipeline - INFO - Weather ETL pipeline completed successfully.
+2026-07-14 23:39:41,572 - src.elt - INFO - Weather ELT workflow started.
+2026-07-14 23:39:41,576 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-14 23:39:41,604 - src.extract - ERROR - API request failed: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=61.4991&longitude=23.7871&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m&timezone=auto&forecast_days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002043E14A3C0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-14 23:39:41,610 - src.elt - ERROR - Weather ELT workflow failed: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=61.4991&longitude=23.7871&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m&timezone=auto&forecast_days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002043E14A3C0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-14 23:46:06,110 - src.elt - INFO - Weather ELT workflow started.
+2026-07-14 23:46:06,111 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-14 23:46:06,123 - src.extract - ERROR - API request failed: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=61.4991&longitude=23.7871&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m&timezone=auto&forecast_days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001518B49A270>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-14 23:46:06,123 - src.elt - ERROR - Weather ELT workflow failed: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=61.4991&longitude=23.7871&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m&timezone=auto&forecast_days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001518B49A270>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-15 00:45:24,044 - src.elt - INFO - Weather ELT workflow started.
+2026-07-15 00:45:24,047 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-15 00:45:24,274 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-15 00:45:24,276 - src.elt - INFO - Starting raw weather data load into staging table.
+2026-07-15 00:45:24,295 - src.load - INFO - Database connection established successfully
+2026-07-15 00:45:24,334 - src.load - INFO - Database tables created successfully.
+2026-07-15 00:45:24,351 - src.elt - INFO - Raw weather data loaded into staging table successfully.
+2026-07-15 00:45:24,358 - src.elt - INFO - Database connection closed after staging load.
+2026-07-15 00:45:24,362 - src.elt - INFO - Reading latest raw weather data from staging table.
+2026-07-15 00:45:24,373 - src.load - INFO - Database connection established successfully
+2026-07-15 00:45:24,377 - src.load - INFO - Database tables created successfully.
+2026-07-15 00:45:24,379 - src.elt - INFO - Latest raw weather data retrieved from staging table.
+2026-07-15 00:45:24,384 - src.elt - INFO - Database connection closed after staging read.
+2026-07-15 00:45:24,391 - src.transform - INFO - Starting weather data transformation.
+2026-07-15 00:45:24,458 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-15 00:45:24,459 - src.validate - INFO - Starting weather data validation.
+2026-07-15 00:45:24,468 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-15 00:45:24,468 - src.load - INFO - Starting weather data load process.
+2026-07-15 00:45:24,470 - src.load - INFO - Database connection established successfully
+2026-07-15 00:45:24,471 - src.load - INFO - Database tables created successfully.
+2026-07-15 00:45:24,484 - src.load - INFO - Location dimension loaded successfully.
+2026-07-15 00:45:24,498 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-15 00:45:24,507 - src.load - INFO - Time dimension loaded successfully.
+2026-07-15 00:45:24,533 - src.load - INFO - Fact weather table loaded successfully.
+2026-07-15 00:45:24,534 - src.load - INFO - Weather data loaded into database successfully.
+2026-07-15 00:45:24,534 - src.load - INFO - Database connection closed.
+2026-07-15 00:45:24,535 - src.elt - INFO - Weather ELT workflow completed successfully.
