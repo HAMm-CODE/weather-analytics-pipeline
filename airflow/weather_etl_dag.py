@@ -21,3 +21,12 @@ from src.extract import extract_weather_data
 from src.transform import transform_weather_data
 from src.validate import validate_weather_data
 from src.load import load_weather_data
+
+
+default_args = {
+    "owner": "Hamza",
+    "depends_on_past": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
+}
+
