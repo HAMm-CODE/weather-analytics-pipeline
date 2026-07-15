@@ -16,3 +16,8 @@ from airflow.operators.python import PythonOperator
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT))
 
+
+from src.extract import extract_weather_data
+from src.transform import transform_weather_data
+from src.validate import validate_weather_data
+from src.load import load_weather_data
