@@ -93,3 +93,20 @@ def validate_task(**context):
         key="validated_weather_data",
         value=validated_data_json,
     )
+
+
+def load_task(**context):
+    """
+    Load validated weather data into the SQL star schema.
+    """
+
+    import pandas as pd
+
+    validated_data_json = context["ti"].xcom_pull(
+        task_ids="validate_weather_data",
+        key="validated_weather_data",
+    )
+
+    validated_data = pd.read_json(validated_data_json)
+
+    load_weather_data(validated_data)
