@@ -42,3 +42,27 @@ def extract_task(**context):
         key="raw_weather_data",
         value=raw_data,
     )
+
+
+def transform_task(**context):
+    """
+    Transform raw weather data into a clean tabular format.
+    """
+
+    raw_data = context["ti"].xcom_pull(
+        task_ids="extract_weather_data",
+        key="raw_weather_data",
+    )
+
+    clean_data = transform_weather_data(raw_data)
+
+    # Convert DataFrame to JSON so Airflow can pass it between tasks
+    clean_data_json = clean_data.to_json(
+        orient="records",
+        date_format="iso",
+    )
+
+    context["ti"].xcom_push(
+        key="clean_weather_data",
+        value=clean_data_json,
+    )
