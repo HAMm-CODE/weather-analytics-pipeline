@@ -110,3 +110,36 @@ def load_task(**context):
     validated_data = pd.read_json(validated_data_json)
 
     load_weather_data(validated_data)
+
+
+with DAG(
+    dag_id="weather_analytics_etl_pipeline",
+    default_args=default_args,
+    description="Daily ETL pipeline for Open-Meteo weather analytics",
+    start_date=datetime(2026, 7, 1),
+    schedule="@daily",
+    catchup=False,
+    tags=["weather", "etl", "data-engineering"],
+) as dag:
+
+    extract = PythonOperator(
+        task_id="extract_weather_data",
+        python_callable=extract_task,
+    )
+
+    transform = PythonOperator(
+        task_id="transform_weather_data",
+        python_callable=transform_task,
+    )
+
+    validate = PythonOperator(
+        task_id="validate_weather_data",
+        python_callable=validate_task,
+    )
+
+    load = PythonOperator(
+        task_id="load_weather_data",
+        python_callable=load_task,
+    )
+
+    extract >> transform >> validate >> load
