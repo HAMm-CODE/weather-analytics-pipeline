@@ -108,3 +108,7 @@ col4.metric(
     "Average Wind Speed",
     f"{df['wind_speed_kmh'].mean():.2f} km/h",
 )
+
+st.divider()
+
+st.subheader("Temperature Over Time")
