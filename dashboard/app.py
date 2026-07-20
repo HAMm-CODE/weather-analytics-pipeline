@@ -126,3 +126,15 @@ humidity_chart_data = df.set_index("observation_time")[
 ]
 
 st.line_chart(humidity_chart_data)
+
+st.subheader("Precipitation by Hour")
+
+precipitation_chart_data = df.set_index("observation_time")[
+    ["precipitation_mm"]
+]
+
+st.bar_chart(precipitation_chart_data)
+
+st.subheader("Raw Weather Records")
+
+st.dataframe(df)
