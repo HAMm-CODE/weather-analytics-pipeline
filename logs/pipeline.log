@@ -248,3 +248,47 @@
 2026-07-15 00:45:24,534 - src.load - INFO - Weather data loaded into database successfully.
 2026-07-15 00:45:24,534 - src.load - INFO - Database connection closed.
 2026-07-15 00:45:24,535 - src.elt - INFO - Weather ELT workflow completed successfully.
+2026-07-20 17:46:10,202 - src.pipeline - INFO - Weather ETL pipeline started.
+2026-07-20 17:46:10,204 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-20 17:46:10,462 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-20 17:46:10,463 - src.transform - INFO - Starting weather data transformation.
+2026-07-20 17:46:10,504 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-20 17:46:10,504 - src.validate - INFO - Starting weather data validation.
+2026-07-20 17:46:10,510 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-20 17:46:10,511 - src.load - INFO - Starting weather data load process.
+2026-07-20 17:46:10,523 - src.load - INFO - Database connection established successfully
+2026-07-20 17:46:10,535 - src.load - INFO - Database tables created successfully.
+2026-07-20 17:46:10,548 - src.load - INFO - Location dimension loaded successfully.
+2026-07-20 17:46:10,556 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-20 17:46:10,564 - src.load - INFO - Time dimension loaded successfully.
+2026-07-20 17:46:10,579 - src.load - INFO - Fact weather table loaded successfully.
+2026-07-20 17:46:10,580 - src.load - INFO - Weather data loaded into database successfully.
+2026-07-20 17:46:10,580 - src.load - INFO - Database connection closed.
+2026-07-20 17:46:10,580 - src.pipeline - INFO - Weather ETL pipeline completed successfully.
+2026-07-20 17:46:33,019 - src.elt - INFO - Weather ELT workflow started.
+2026-07-20 17:46:33,019 - src.extract - INFO - Starting weather data extraction for Tampere.
+2026-07-20 17:46:33,202 - src.extract - INFO - Weather data extraction completed successfully.
+2026-07-20 17:46:33,207 - src.elt - INFO - Starting raw weather data load into staging table.
+2026-07-20 17:46:33,212 - src.load - INFO - Database connection established successfully
+2026-07-20 17:46:33,217 - src.load - INFO - Database tables created successfully.
+2026-07-20 17:46:33,226 - src.elt - INFO - Raw weather data loaded into staging table successfully.
+2026-07-20 17:46:33,230 - src.elt - INFO - Database connection closed after staging load.
+2026-07-20 17:46:33,231 - src.elt - INFO - Reading latest raw weather data from staging table.
+2026-07-20 17:46:33,234 - src.load - INFO - Database connection established successfully
+2026-07-20 17:46:33,237 - src.load - INFO - Database tables created successfully.
+2026-07-20 17:46:33,241 - src.elt - INFO - Latest raw weather data retrieved from staging table.
+2026-07-20 17:46:33,285 - src.elt - INFO - Database connection closed after staging read.
+2026-07-20 17:46:33,286 - src.transform - INFO - Starting weather data transformation.
+2026-07-20 17:46:33,308 - src.transform - INFO - Weather data transformation completed successfully. Rows: 24
+2026-07-20 17:46:33,309 - src.validate - INFO - Starting weather data validation.
+2026-07-20 17:46:33,314 - src.validate - INFO - Weather data validation completed successfully.
+2026-07-20 17:46:33,314 - src.load - INFO - Starting weather data load process.
+2026-07-20 17:46:33,315 - src.load - INFO - Database connection established successfully
+2026-07-20 17:46:33,316 - src.load - INFO - Database tables created successfully.
+2026-07-20 17:46:33,321 - src.load - INFO - Location dimension loaded successfully.
+2026-07-20 17:46:33,327 - src.load - INFO - Date dimesion loaded successfully.
+2026-07-20 17:46:33,332 - src.load - INFO - Time dimension loaded successfully.
+2026-07-20 17:46:33,342 - src.load - INFO - Fact weather table loaded successfully.
+2026-07-20 17:46:33,343 - src.load - INFO - Weather data loaded into database successfully.
+2026-07-20 17:46:33,343 - src.load - INFO - Database connection closed.
+2026-07-20 17:46:33,343 - src.elt - INFO - Weather ELT workflow completed successfully.
