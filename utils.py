@@ -22,3 +22,24 @@ def create_project_folders():
 
     for folder in folders:
         Path(folder).mkdir(parents=True, exist_ok=True)
+
+
+def setup_logging():
+    """
+    Configure logging for the project.
+
+    logs will be written to:
+    - terminal
+    - logs/pipeline.log
+    """
+
+    create_project_folders()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        handlers=[
+            logging.FileHandler("logs/pipeline.log"),
+            logging.StreamHandler(),
+        ],
+    )
