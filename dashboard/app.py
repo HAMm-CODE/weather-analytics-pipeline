@@ -33,7 +33,7 @@ def load_weather_data():
             fw.observation_time,
             fw.temperature_celsius,
             fw.humidity_percent,
-            fw.precipitation_mm,
+            fw.precipitation_nm,
             fw.wind_speed_kmh
         FROM fact_weather fw
         JOIN dim_location dl
@@ -101,7 +101,7 @@ col2.metric(
 
 col3.metric(
     "Total Precipitation",
-    f"{df['precipitation_mm'].sum():.2f} mm",
+    f"{df['precipitation_nm'].sum():.2f} mm",
 )
 
 col4.metric(
@@ -130,7 +130,7 @@ st.line_chart(humidity_chart_data)
 st.subheader("Precipitation by Hour")
 
 precipitation_chart_data = df.set_index("observation_time")[
-    ["precipitation_mm"]
+    ["precipitation_nm"]
 ]
 
 st.bar_chart(precipitation_chart_data)
