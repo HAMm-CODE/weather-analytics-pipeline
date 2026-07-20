@@ -69,3 +69,22 @@ st.write(
     "This dashboard shows weather data extracted from the Open-Meteo API "
     "and loaded into a SQLite star schema."
 )
+
+if not DATABASE_PATH.exists():
+    st.error(
+        "Database not found. Please run `python main.py` first to create "
+        "`data/weather.db`."
+    )
+    st.stop()
+
+df = load_weather_data()
+
+if df.empty:
+    st.warning("No weather records found in the database.")
+    st.stop()
+
+location = df["location_name"].iloc[0]
+
+st.subheader(f"Location: {location}")
+
+col1, col2, col3, col4 = st.columns(4)
