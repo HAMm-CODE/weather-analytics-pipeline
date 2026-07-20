@@ -112,3 +112,17 @@ col4.metric(
 st.divider()
 
 st.subheader("Temperature Over Time")
+
+temperature_chart_data = df.set_index("observation_time")[
+    ["temperature_celsius"]
+]
+
+st.line_chart(temperature_chart_data)
+
+st.subheader("Humidity Over Time")
+
+humidity_chart_data = df.set_index("observation_time")[
+    ["humidity_percent"]
+]
+
+st.line_chart(humidity_chart_data)
