@@ -55,3 +55,10 @@ def load_weather_data():
     df["full_date"] = pd.to_datetime(df["full_date"])
 
     return df
+
+
+st.set_page_config(
+    page_title="Weather Analytics Dashboard",
+    page_icon="🌦️",
+    layout="wide",
+)
