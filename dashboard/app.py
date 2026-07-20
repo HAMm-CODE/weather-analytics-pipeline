@@ -88,3 +88,23 @@ location = df["location_name"].iloc[0]
 st.subheader(f"Location: {location}")
 
 col1, col2, col3, col4 = st.columns(4)
+
+col1.metric(
+    "Average Temperature",
+    f"{df['temperature_celsius'].mean():.2f} °C",
+)
+
+col2.metric(
+    "Average Humidity",
+    f"{df['humidity_percent'].mean():.2f} %",
+)
+
+col3.metric(
+    "Total Precipitation",
+    f"{df['precipitation_mm'].sum():.2f} mm",
+)
+
+col4.metric(
+    "Average Wind Speed",
+    f"{df['wind_speed_kmh'].mean():.2f} km/h",
+)
