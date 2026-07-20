@@ -62,3 +62,10 @@ st.set_page_config(
     page_icon="🌦️",
     layout="wide",
 )
+
+
+st.title("🌦️ Weather Analytics Dashboard")
+st.write(
+    "This dashboard shows weather data extracted from the Open-Meteo API "
+    "and loaded into a SQLite star schema."
+)
