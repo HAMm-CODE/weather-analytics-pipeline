@@ -4,7 +4,7 @@ A Data Engineering project that extracts weather data from the Open-Meteo API, v
 
 ## Architecture
 
-![Pipeline Architecture](screenshots/pipeline_architecture.png)
+![Pipeline Architecture](assets/screenshots/pipeline-architecture.png)
 
 ```text
 Open-Meteo API
@@ -104,7 +104,7 @@ pytest
 
 ## Star Schema
 
-![Star Schema](screenshots/star_schema.png)
+![Star Schema](assets/screenshots/star-schema.png)
 
 ### Tables
 
@@ -116,7 +116,7 @@ pytest
 
 ## Airflow
 
-![Airflow DAG](screenshots/airflow_dag.png)
+![Airflow DAG](assets/screenshots/airflow.png)
 
 DAG Tasks:
 
@@ -132,7 +132,7 @@ load_weather_data
 
 ## Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](assets/screenshots/dashboard.png)
 
 The dashboard displays:
 
